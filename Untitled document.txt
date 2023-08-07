@@ -1,0 +1,103 @@
+﻿Nudge Creation API Documentation
+
+
+ Description
+The Nudge Creation API allows users to create, manage, and schedule nudges for their events. A nudge is a notification or reminder that includes various details such as a title, image cover, scheduled time, description, icon, and a one-line invitation.
+
+
+ Object Data Model
+The Nudge object follows the given model:
+```json
+{
+        "id": "string",                  // Unique identifier for the nudge
+        "eventTag": "string",            // Tag for the associated event
+        "title": "string",               // Title of the nudge
+        "imageURL": "string",            // URL of the cover image
+        "scheduledTime": "string",   // Date and time to send the nudge (ISO 8601 format)
+        "description": "string",         // Description of the nudge
+        "icon": "string",                // Icon for the nudge
+        "invitation": "string"           // One-line invitation for the nudge
+}
+```
+
+
+ API Structure
+
+
+ Base URL:  `https://api.example.com`
+
+
+# Endpoints
+
+
+1.  Create a Nudge 
+   -  HTTP Method:  POST
+   -  Endpoint:  `/nudges`
+   -  Payload: 
+         ```json
+         {
+             "eventTag": "string",
+             "title": "string",
+             "imageURL": "string",
+             "scheduledTime": "string",
+             "description": "string",
+             "icon": "string",
+             "invitation": "string"
+         }
+         ```
+   -  Description:  Creates a new nudge for the specified event.
+
+
+2.  Get Nudge by ID 
+   -  HTTP Method:  GET
+   -  Endpoint:  `/nudges/{nudge_id}`
+   -  Description:  Retrieves details of a specific nudge by its ID.
+
+
+3.  Update Nudge 
+   -  HTTP Method:  PUT
+   -  Endpoint:  `/nudges/{nudge_id}`
+   -  Payload: 
+         ```json
+         {
+             "eventTag": "string",
+             "title": "string",
+             "imageURL": "string",
+             "scheduledTime": "string",
+             "description": "string",
+             "icon": "string",
+             "invitation": "string"
+         }
+         ```
+   -  Description:  Updates the details of a specific nudge by its ID.
+
+
+4.  Delete Nudge 
+   -  HTTP Method:  DELETE
+   -  Endpoint:  `/nudges/{nudge_id}`
+   -  Description:  Deletes a specific nudge by its ID.
+
+
+ CRUD Functionality
+
+
+1.  Create Nudge 
+   - Use the `/nudges` endpoint with the HTTP POST method. Provide the necessary payload with details of the nudge to be created.
+
+
+2.  Read Nudge 
+   - Use the `/nudges/{nudge_id}` endpoint with the HTTP GET method. Replace `{nudge_id}` with the ID of the nudge you want to retrieve.
+
+
+3.  Update Nudge 
+   - Use the `/nudges/{nudge_id}` endpoint with the HTTP PUT method. Replace `{nudge_id}` with the ID of the nudge you want to update. Provide the updated payload.
+
+
+4.  Delete Nudge 
+   - Use the `/nudges/{nudge_id}` endpoint with the HTTP DELETE method. Replace `{nudge_id}` with the ID of the nudge you want to delete.
+
+
+Note: Make sure to replace placeholders like `{nudge_id}` with actual values.
+
+
+This API documentation outlines the structure, endpoints, and payloads required for creating, reading, updating, and deleting nudges.
